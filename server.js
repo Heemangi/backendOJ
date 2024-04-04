@@ -8,19 +8,29 @@ const routes = require('./routes/index')
 
 // express app
 const app = express()
-const corsOptions = {
-    origin: 'https://frontend-oj.vercel.app/',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-  };
+// const corsOptions = {
+//     origin: 'https://frontend-oj.vercel.app/',
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, 
+//   };
   
-  app.use(cors(corsOptions));
-  
+//   app.use(cors(corsOptions));
+app.use(
+    cors({
+      origin: [
+        'http://localhost:3000',
+        'https://frontend-oj.vercel.app/'
+      ],
+      methods: ['GET', 'POST', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      credentials: true,
+    })
+)
 
 // middleware
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-// app.use(cors());
+app.use(cors());
 
 
   
