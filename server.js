@@ -9,7 +9,7 @@ const routes = require('./routes/index')
 // express app
 const app = express()
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://frontendoj.onrender.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, 
   };
