@@ -8,19 +8,13 @@ const routes = require('./routes/index')
 
 // express app
 const app = express()
-const corsOptions = {
-    origin: 'https://frontendoj.onrender.com',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-  };
-  
-  app.use(cors(corsOptions));
+
   
 
 // middleware
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-// app.use(cors());
+app.use(cors());
 
 
   
