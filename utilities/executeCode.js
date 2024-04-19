@@ -21,7 +21,8 @@ const executeCode = async (filePath, language, input) => {
     await fs.writeFileSync(inputPath, input);
 
     const executeCommands = {
-        cpp: [`g++ ${filePath} -o ${outputPath} && cd ${outputDirectory} && .\\${fileID}.exe < ${inputPath}`],
+        // cpp: [`g++ ${filePath} -o ${outputPath} && cd ${outputDirectory} && .\\${fileID}.exe < ${inputPath}`],
+        cpp: [`g++ ${filePath} -o ${outputPath} && ${outputPath} < ${inputPath}`],
         py: [`python ${filePath} < ${inputPath}`],
         java: [`java ${filePath} < ${inputPath}`]
     }
